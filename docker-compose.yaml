@@ -10,8 +10,8 @@ services:
             - '3000:3000'
         volumes:
             - '.:/product-register'
-        env_file: 
-            - ./.env
+        environment: 
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
         tty: true
         stdin_open: true
         depends_on:
