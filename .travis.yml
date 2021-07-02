@@ -1,12 +1,13 @@
-sudo: required
-services:
-- docker
-before_install:
-- docker-compose up --build
-script:
-- docker-compose exec --env 'RAILS_ENV=test' web rails db:create
-- docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
-- docker-compose exec --env 'RAILS_ENV=test' web rails test
+
+
 env:
   global:
     secure: Q/O0AL0jei2C96lAoP2bSkjW+wztmgwLpippBkaKOkB0YYk14VyG9Pf9kXp4fxWvDCdLcTa5LPSiMYbrnaPCgIyHq8/DDokuG7nYf5hNbuLKAPshzPWhakAZQW+/aNGk7PVc+9jvThDfHJX/QDzdX83OE29boaSiczQ52OKyQL2e0BBuxeeoiwDANMyK3e+USpq/jUL5Ok0U4sMuWgM/qOqgOrNbQXAu2LqFyMmo1jZJUzPvwyibCG+nDZUFle7FrGAQCuOlYwp72IB3bBfLaVFCLXJNaaBBiCfA//OtZzjbfCFgzkQo6SH6SD0TwQ09vc5gm2+J9m5LIQQ6Wst/PjXsfILhTppe+Wl2muUMNxwdyQ36TA0MomgH6h0OAr++6IQXgj1UHswZ6gYlue/McgowN02CaFKylqOioBZflYvv4jaH9Nhl5bXYuYacjMvRmGA3z7bPtuFPG9DLnGPsr/wChW4NnH7O4A6nql8XStn3VamhGn0QzxHZPWothu0PGns/CvlgR6pvN2l9aXv5HkWBt3APPmLKWVuP/vPsAlX7flJKaneS/C8Br9SVh8whZqNkoPtehbZZNho8yo/AuMR6SjfmthuLpCrhAXf6hTaaVyf+buKbkk6/Jije/jrSZIa4/l+TCshT7dcwWPX6zYFn8LArRxMjQivIfqDuJTo=
+
+before_install:
+  - docker-compose up --build
+
+script:
+  - docker-compose exec --env 'RAILS_ENV=test' web rails db:create
+  - docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
+  - docker-compose exec --env 'RAILS_ENV=test' web rails test
